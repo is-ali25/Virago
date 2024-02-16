@@ -9,13 +9,13 @@ let spiralBackground = document.getElementById("spiral");
 let spiralBackgroundVideo = document.getElementById("spiral-video");
 
 //sounds
-let static = new Audio("vid/strip2_audio2.mp3");
-let swish = new Audio("vid/swish.mp3");
-let voice1 = new Audio("vid/voice_1_final.mp3");
-let voice2a = new Audio("vid/voice_2a_final.mp3");
-let voice2b = new Audio("vid/voice_2b_final.mp3");
-let voice3a = new Audio("vid/voice_3a_final.mp3");
-let voice3b = new Audio("vid/voice_3b_final.mp3");
+let static = new Audio("/vid/strip2_audio2.mp3");
+let swish = new Audio("/vid/swish.mp3");
+let voice1 = new Audio("/vid/voice_1_final.mp3");
+let voice2a = new Audio("/vid/voice_2a_final.mp3");
+let voice2b = new Audio("/vid/voice_2b_final.mp3");
+let voice3a = new Audio("/vid/voice_3a_final.mp3");
+let voice3b = new Audio("/vid/voice_3b_final.mp3");
 
 //text elements
 let virago = document.getElementById("virago");
@@ -57,8 +57,8 @@ voice3b.onended = () => {
 // const transitions = [pt2, pt3, pt4, pt5, pt6];
 const pt2Sources = [
   [""],
-  ["vid/strip2.webm"],
-  ["vid/framed_sunflower_drive.webm"],
+  ["/vid/strip2.webm"],
+  ["/vid/framed_sunflower_drive.webm"],
 ];
 
 // window.addEventListener("keypress", () => {
@@ -88,7 +88,7 @@ function pt3() {
     videoContainers[i].style.backgroundColor = "white";
     videos[i].style.display = "none";
   }
-  backgroundVideo.src = "vid/new_jazz.webm";
+  backgroundVideo.src = "/vid/new_jazz.webm";
   backgroundVideo.muted = false;
   backgroundVideo.style.display = "block";
   background.style.mixBlendMode = "difference";
@@ -97,7 +97,7 @@ function pt3() {
 
 function pt4() {
   backgroundVideo.style.display = "none";
-  darkBackgroundVideo.src = "vid/basketball_compressed.webm";
+  darkBackgroundVideo.src = "/vid/basketball_compressed.webm";
   darkBackgroundVideo.style.display = "block";
   darkBackground.style.animation = "basketball 1s forwards";
   darkBackgroundVideo.muted = true;
