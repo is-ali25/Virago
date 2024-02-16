@@ -1,0 +1,131 @@
+body {
+  background-color: black;
+  overflow: hidden;
+}
+
+#virago {
+  z-index: 13;
+  font-size: 10rem;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  color: lightseagreen;
+  opacity: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.video-container {
+  width: 100vh;
+  height: 30vh;
+  background-color: white;
+  border-bottom: 0.125em solid black;
+  margin: 0.2em;
+}
+
+.video {
+  width: 100vh;
+  height: 30vh;
+  object-fit: cover;
+}
+
+#background,
+#background video {
+  position: absolute;
+  /* background-color: slateblue; */
+  width: 100vw;
+  height: 68vh;
+  object-fit: cover;
+  z-index: 10;
+  top: 0.6vh;
+  display: block;
+
+  mix-blend-mode: multiply;
+}
+
+#dark-background video {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: none;
+  animation: static 20s forwards;
+  z-index: 9;
+
+  /* mix-blend-mode: soft-light; */
+  /* mix-blend-mode: hue; */
+  /* mix-blend-mode: difference; */
+  /* mix-blend-mode: darken; */
+  /* mix-blend-mode: color-dodge; */
+}
+
+#spiral-video {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  /* display: none; */
+  /* animation: static 20s forwards; */
+  z-index: 15;
+  opacity: 0;
+
+  /* mix-blend-mode: normal; */
+  /* mix-blend-mode: hue; */
+  /* mix-blend-mode: difference; */
+  /* mix-blend-mode: darken; */
+  /* mix-blend-mode: color-dodge; */
+}
+
+#two video,
+#one video {
+  display: none;
+  z-index: 11;
+}
+
+#one,
+#one video {
+  animation-duration: 50s;
+}
+#two,
+#two video {
+  animation-duration: 100s;
+}
+
+#three,
+#three video {
+  animation-duration: 150s;
+  /* z-index: 11; */
+}
+
+@keyframes static {
+  from {
+    opacity: 1;
+    mix-blend-mode: difference;
+  }
+
+  to {
+    opacity: 0.08;
+    mix-blend-mode: color-dodge;
+    /* mix-blend-mode: hue; */
+  }
+}
+
+@keyframes basketball {
+  from {
+    opacity: 0.08;
+    mix-blend-mode: color-dodge;
+    /* mix-blend-mode: hue; */
+  }
+
+  to {
+    z-index: 11;
+    opacity: 1;
+    mix-blend-mode: normal;
+  }
+}
