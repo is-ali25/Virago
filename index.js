@@ -45,7 +45,7 @@ function updateWidths() {
 // videos[2].pause();
 
 window.addEventListener("click", () => {
-  // backgroundVideo.play();
+  backgroundVideo.play();
   voice1.play();
   const intervalId = setInterval(updateWidths, frameRate);
 });
