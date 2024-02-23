@@ -41,12 +41,12 @@ function updateWidths() {
 
 //ACTUAL CODE STARTS HERE
 //prevent default behavior from HTML
-backgroundVideo.pause();
-videos[2].pause();
+// backgroundVideo.pause();
+// videos[2].pause();
 
 window.addEventListener("click", () => {
-  backgroundVideo.play();
-  // voice1.play();
+  // backgroundVideo.play();
+  voice1.play();
   const intervalId = setInterval(updateWidths, frameRate);
 });
 
