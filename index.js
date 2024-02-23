@@ -20,8 +20,35 @@ let voice3b = new Audio("/vid/voice_3b_final.mp3");
 //text elements
 let virago = document.getElementById("virago");
 
+//FOR RECTANGLES (strips)
+const speed1 = 2000; //need better names for these things
+const speed2 = 10000;
+const speed3 = 13000;
+const frameRate = 50;
+let timer = 0;
+
+function updateWidths() {
+  timer += frameRate;
+  for (i = 0; i < videos.length; i++) {
+    const speed = i == 0 ? speed1 : i == 1 ? speed2 : speed3;
+    const subtractor = (100 / speed) * (timer / frameRate);
+    videoContainers[i].style.width = `${100 - subtractor}vw`;
+    videos[i].style.width = `${100 - subtractor}vw`;
+  }
+
+  if (timer >= speed3 * frameRate) clearInterval(intervalId);
+}
+
 //ACTUAL CODE STARTS HERE
-voice1.play();
+//prevent default behavior from HTML
+backgroundVideo.pause();
+videos[2].pause();
+
+window.addEventListener("click", () => {
+  backgroundVideo.play();
+  voice1.play();
+  const intervalId = setInterval(updateWidths, frameRate);
+});
 
 //for after part 1
 let b = false;
@@ -29,7 +56,6 @@ backgroundVideo.onended = () => {
   pt2();
   if (!b) {
     const play2a = setTimeout(() => voice2a.play(), 7000);
-    // voice2a.play();
     b = true;
   } else {
     voice2b.play();
@@ -60,12 +86,6 @@ const pt2Sources = [
   ["/vid/strip2.webm"],
   ["/vid/framed_sunflower_drive.webm"],
 ];
-
-// window.addEventListener("keypress", () => {
-//   const stateChange = transitions[transitionIndex];
-//   stateChange();
-//   transitionIndex++;
-// });
 
 let oldWidths = [];
 function pt2() {
@@ -121,24 +141,3 @@ function pt6() {
   virago.style.opacity = "1";
   swish.play();
 }
-
-//FOR RECTANGLES
-const speed1 = 2000; //need better names for these things
-const speed2 = 10000;
-const speed3 = 13000;
-const frameRate = 50;
-let timer = 0;
-
-function updateWidths() {
-  timer += frameRate;
-  for (i = 0; i < videos.length; i++) {
-    const speed = i == 0 ? speed1 : i == 1 ? speed2 : speed3;
-    const subtractor = (100 / speed) * (timer / frameRate);
-    videoContainers[i].style.width = `${100 - subtractor}vw`;
-    videos[i].style.width = `${100 - subtractor}vw`;
-  }
-
-  if (timer >= speed3 * frameRate) clearInterval(intervalId);
-}
-
-const intervalId = setInterval(updateWidths, frameRate);
